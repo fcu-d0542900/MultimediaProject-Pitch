@@ -18,11 +18,11 @@ parser.add_argument("-input", required=False, type=int, help="Audio Input Device
 args = parser.parse_args()
 
 if args.input is None:
-    print("No input device specified. Printing list of input devices now: ")
+    print("讀取輸入音源: ")
     p = pyaudio.PyAudio()
     for i in range(p.get_device_count()):
-        print("Device number (%i): %s" % (i, p.get_device_info_by_index(i).get('name')))
-    print("Run this program with -input 1, or the number of the input you'd like to use.")
+        print("裝置 %i: %s" % (i, p.get_device_info_by_index(i).get('name')))
+    print("--由裝置 1 輸入")
     
 p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paFloat32,

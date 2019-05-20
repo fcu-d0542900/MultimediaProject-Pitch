@@ -15,9 +15,8 @@ clock = pygame.time.Clock()
 
 running = True
 
-titleFont = pygame.font.Font("NotoSansMono-ExtraBold.ttf", 34)
-titleText = titleFont.render("Sing ", True, (225, 77, 241))
-titleCurr = titleFont.render("Your Note", True, (225, 77, 241))
+titleFont = pygame.font.Font("NotoSansCJKtc-Bold.otf", 34)
+titleText = titleFont.render("唱出想要的音~", True, (225, 77, 241))
 
 noteFont = pygame.font.Font("NotoSansMono-ExtraBold.ttf", 55)
 
@@ -49,7 +48,6 @@ while running:
         screen.blit(noteText, (50, 400))
 
     screen.blit(titleText, (10,  80))
-    screen.blit(titleCurr, (10, 120))
     pygame.display.flip()
     clock.tick(30)
 
