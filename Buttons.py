@@ -1,7 +1,7 @@
 
 import pygame
 from pygame.locals import *
-pygame.init()
+#pygame.init()
 class Button:
     def create_button(self, surface, color, x, y, length, height, width, text, text_color,font_size):
         surface = self.draw_button(surface, color, length, height, x, y, width)
