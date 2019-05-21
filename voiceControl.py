@@ -60,7 +60,7 @@ class voiceControl:
                 print(current_pitch)        
             else:
                 current = current_pitch.nameWithOctave
-                self.q.put({'Note': current, 'Cents': current_pitch.microtone.cents})
+                self.q.put({'Note': current, 'Cents': current_pitch.microtone.cents,'Pitch':current_pitch})
             
 if __name__ == '__main__':
     vc = voiceControl()

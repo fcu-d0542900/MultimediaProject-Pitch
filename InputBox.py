@@ -17,6 +17,7 @@ class InputBox:
         self.rect = pg.Rect(x, y, w, h)
         self.color = self.COLOR_INACTIVE
         self.text = text
+        self.gettext = ''
         self.txt_surface = self.FONT.render(text, True, self.color)
         self.active = False
 
@@ -34,6 +35,7 @@ class InputBox:
             if self.active:
                 if event.key == pg.K_RETURN:
                     print(self.text)
+                    self.gettext = self.text
                     self.text = ''
                 elif event.key == pg.K_BACKSPACE:
                     self.text = self.text[:-1]
