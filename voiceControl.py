@@ -8,28 +8,17 @@ import aubio
 import numpy as np
 import pyaudio
 import time
-import argparse
 import queue
 import music21
 
 class voiceControl:
     def __init__(self):
         #輸入音訊
-        parser = argparse.ArgumentParser()
-        parser.add_argument("-input", required=False, type=int, help="Audio Input Device")
-        args = parser.parse_args()
-        
-        if args.input is None:
-            print("讀取輸入音源: ")
-            p = pyaudio.PyAudio()
-            for i in range(p.get_device_count()):
-                print("裝置 %i: %s" % (i, p.get_device_info_by_index(i).get('name')))
-            print("--由裝置 1 輸入")
-            
+        print("讀取輸入音源: ")  
         self.p = pyaudio.PyAudio()
-        self.stream = p.open(format=pyaudio.paFloat32,
+        self.stream = self.p.open(format=pyaudio.paFloat32,
                         channels=1, rate=44100, input=True,
-                        input_device_index=args.input, frames_per_buffer=4096)
+                        input_device_index=None, frames_per_buffer=4096)
         time.sleep(1)
         
         self.pDetection = aubio.pitch("default", 2048, 2048//2, 44100)
