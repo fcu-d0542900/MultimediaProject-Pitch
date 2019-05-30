@@ -1,0 +1,3 @@
+D:
+cd D:\YURU\Documents\YURU\FCU\課\1072\多媒體系統概論(資訊二合)[1435]\專題\MultimediaProject-Pitch
+python pitch.py

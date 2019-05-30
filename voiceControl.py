@@ -15,13 +15,13 @@ class voiceControl:
     def __init__(self):
         #輸入音訊
         print("讀取輸入音源: ")  
-        self.p = pyaudio.PyAudio()
-        self.stream = self.p.open(format=pyaudio.paFloat32,
+        self.p = pyaudio.PyAudio()  #輸入源
+        self.stream = self.p.open(format=pyaudio.paFloat32,  #讀入
                         channels=1, rate=44100, input=True,
                         input_device_index=None, frames_per_buffer=4096)
         time.sleep(1)
         
-        self.pDetection = aubio.pitch("default", 2048, 2048//2, 44100)
+        self.pDetection = aubio.pitch("default", 2048, 2048//2, 44100)  #aubio.pitch(method, buf_size, hop_size, samplerate)
         self.pDetection.set_unit("Hz")
         self.pDetection.set_silence(-40)
         

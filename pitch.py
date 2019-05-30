@@ -21,9 +21,9 @@ clock = pygame.time.Clock()
 
 running = True
 
-titleFont = pygame.font.Font("NotoSansCJKtc-Bold.otf", 34)
+titleFont = pygame.font.Font("NotoSansCJKtc-Bold.otf", 30)
 textFont = pygame.font.Font("NotoSansMono-ExtraBold.ttf", 30)
-noteFont = pygame.font.Font("NotoSansMono-ExtraBold.ttf", 55)
+noteFont = pygame.font.Font("NotoSansMono-ExtraBold.ttf", 50)
 
 t = Thread(target = vc.getCurrentNote)
 t.daemon = True
@@ -58,6 +58,7 @@ while running:
                 print("Button1!")
             if Button2.pressed(pygame.mouse.get_pos()):
                 print("Button2!")
+                wp=''
                 mode = 2
     else:
         if mode == 1:
@@ -83,9 +84,10 @@ while running:
             InputBox1.update()
             if InputBox1.gettext != '':
                 print('-->'+InputBox1.gettext)
+                wp = InputBox1.gettext.upper()
                 want_pitch = music21.pitch.Pitch(InputBox1.gettext)
                 InputBox1.gettext=''
-            titleText = titleFont.render("輸入想要的音名~", True, (225, 77, 241))
+            titleText = titleFont.render("想要的音名: "+wp, True, (225, 77, 241))
             screen.blit(titleText, (10,  80))
             if not (vc.q.empty() or want_pitch==''):
                 b = vc.q.get()
